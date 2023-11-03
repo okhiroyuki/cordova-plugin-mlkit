@@ -1,17 +1,17 @@
-cordova-plugin-firebase-mlvision
-========================
+# cordova-plugin-mlkit
 
-Cordova plugin for Firebase MLKit Vision
+Cordova plugin for MLKit
 
-<a href="https://www.buymeacoffee.com/alon22" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
+## Installation
 
-# Installation
 Run:
-```
-cordova plugin add cordova-plugin-firebase-mlvision --save
+
+```shell
+cordova plugin add @red-mobile@cordova-plugin-mlkit
 ```
 
-# Usage
+## Usage
+
 ## Text recognition
 
 ```js
@@ -27,6 +27,7 @@ FirebaseVisionPlugin.onDeviceTextRecognizer(FILE_URI,
 ```
 
 ## Barcode detector
+
 ```js
 //FILE_URI: File URI or Base64 Format
 FirebaseVisionPlugin.barcodeDetector(FILE_URI,
@@ -40,6 +41,7 @@ FirebaseVisionPlugin.barcodeDetector(FILE_URI,
 ```
 
 ## Image Labeler
+
 ```js
 //FILE_URI: File URI or Base64 Format
 FirebaseVisionPlugin.imageLabeler(FILE_URI,
@@ -52,19 +54,13 @@ FirebaseVisionPlugin.imageLabeler(FILE_URI,
 })
 ```
 
-# Support
-|   |Android|iOS|
-|---|---|---|
-|Text recognition|X|X|
-|Face detection| | |
-|Barcode scanning|X|X|
-|Image labeling|X|X|
-|Object detection & tracking| | |
-|Landmark recognition| | |
+## Support
 
-# Know Issues
-## iOS
-Build iOS from command line failed in
-`PhaseScriptExecution [CP] Copy Pods Resources`
-
-Running from Xcode work correctly
+|                             | Android | iOS |
+| --------------------------- | ------- | --- |
+| Text recognition            | X       |     |
+| Face detection              |         |     |
+| Barcode scanning            | X       |     |
+| Image labeling              | X       |     |
+| Object detection & tracking |         |     |
+| Landmark recognition        |         |     |
