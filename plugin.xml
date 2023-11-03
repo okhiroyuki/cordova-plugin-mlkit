@@ -1,42 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-firebase-mlvision" version="0.5.3" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>FirebaseVision</name>
+<plugin id="@red-mobile/cordova-plugin-mlkit" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Mlkit</name>
 
-    <js-module name="FirebaseVisionPlugin" src="www/firebase-vision.js">
-        <clobbers target="FirebaseVisionPlugin" />
+    <js-module name="MLKit" src="www/mlkit.js">
+        <clobbers target="MLKit" />
     </js-module>
-    <platform name="ios">
-        <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
-
-        <config-file target="config.xml" parent="/*">
-            <feature name="FirebaseVisionPlugin">
-                <param name="ios-package" value="FirebaseVisionPlugin" />
-                <param name="onload" value="true" />
-            </feature>
-        </config-file>
-
-        <source-file src="src/ios/FirebaseVisionPlugin.swift" />
-        <source-file src="src/ios/FirebaseExtensions.swift" />
-
-        <podspec>
-            <config>
-                <source url="https://cdn.cocoapods.org/"/>
-            </config>
-            <pods use-frameworks="true">
-                <pod name="GoogleMLKit/TextRecognition"/>
-                <pod name="GoogleMLKit/BarcodeScanning"/>
-                <pod name="GoogleMLKit/ImageLabeling"/>
-            </pods>
-        </podspec>
-    </platform>
-
     <platform name="android">
-        <dependency id="cordova-plugin-androidx" version="^2.0.0" />
-        <dependency id="cordova-plugin-androidx-adapter" version="^1.1.1" />
-
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="FirebaseVisionPlugin">
-                <param name="android-package" value="by.alon22.cordova.firebase.FirebaseVisionPlugin" />
+            <feature name="MLKit">
+                <param name="android-package" value="org.apache.cordova.plugins.mlkit.MLKit" />
                 <param name="onload" value="true" />
             </feature>
         </config-file>
@@ -44,19 +16,11 @@
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <meta-data
                 android:name="com.google.mlkit.vision.DEPENDENCIES"
-                android:value="ocr" />
+                android:value="ocr,ica,barcode" />
         </config-file>
 
-        <source-file src="src/android/FirebaseVisionPlugin.java" target-dir="by/alon22/cordova/firebase"/>
-        <source-file src="src/android/FirebaseUtils.java" target-dir="by/alon22/cordova/firebase"/>
-
-        <preference name="MKLKIT_VERSION_TEXT_RECOGNITION" default="16.1.1"/>
-        <preference name="MKLKIT_VERSION_BARCODE" default="16.0.3"/>
-        <preference name="MKLKIT_VERSION_IMAGE_LABELLING" default="17.0.0"/>
-
-        <framework src="com.google.android.gms:play-services-mlkit-text-recognition:$MKLKIT_VERSION_TEXT_RECOGNITION"/>
-        <framework src="com.google.mlkit:barcode-scanning:$MKLKIT_VERSION_BARCODE"/>
-        <framework src="com.google.mlkit:image-labeling:$MKLKIT_VERSION_IMAGE_LABELLING"/>
-
+        <source-file src="src/android/org/apache/cordova/plugins/mlkit/MLKit.java" target-dir="org/apache/cordova/plugins/mlkit" />
+        <source-file src="src/android/org/apache/cordova/plugins/mlkit/MLKitUtils.java" target-dir="org/apache/cordova/plugins/mlkit" />
+        <framework src="src/android/mlkit.gradle" custom="true" type="gradleReference" />
     </platform>
 </plugin>

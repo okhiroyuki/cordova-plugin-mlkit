@@ -1,27 +1,37 @@
 {
-  "name": "cordova-plugin-firebase-mlvision",
-  "version": "0.5.3",
+  "name": "@red-mobile/cordova-plugin-mlkit",
+  "version": "1.0.0",
   "description": "",
   "cordova": {
-    "id": "cordova-plugin-firebase-mlvision",
+    "id": "@red-mobile/cordova-plugin-mlkit",
     "platforms": [
-      "ios",
       "android"
     ]
   },
+  "scripts": {
+    "test:clean": "rimraf testapp/node_modules testapp/plugins testapp/platforms testapp/temp-module-copy",
+    "test:install": "cd testapp && npm i",
+    "test:android": "cd testapp && cordova platform add android && cordova prepare android && cordova build",
+    "test:build": "run-s test:clean test:install test:android",
+    "lint": "npx eslint --cache --fix www && prettier --write www"
+  },
   "keywords": [
-    "firebase",
     "mlkit",
-    "ocr",
     "ecosystem:cordova",
-    "cordova-ios",
     "cordova-android"
   ],
-  "author": "Rubén Alonso",
+  "author": "Hiroyuki Okada",
   "license": "MIT",
-  "homepage": "https://github.com/alon22/cordova-plugin-firebase-mlvision#README",
+  "homepage": "https://github.com/okhiroyuki/cordova-plugin-firebase-mlvision#README",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alon22/cordova-plugin-firebase-mlvision"
+    "url": "https://github.com/okhiroyuki2/cordova-plugin-firebase-mlvision"
+  },
+  "devDependencies": {
+    "eslint": "8.52.0",
+    "eslint-config-prettier": "9.0.0",
+    "npm-run-all2": "6.1.1",
+    "prettier": "3.0.3",
+    "rimraf": "5.0"
   }
 }

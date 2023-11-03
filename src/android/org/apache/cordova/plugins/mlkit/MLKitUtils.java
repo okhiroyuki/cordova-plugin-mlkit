@@ -1,10 +1,10 @@
-package by.alon22.cordova.firebase;
+package org.apache.cordova.plugins.mlkit;
 
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.text.TextUtils;
 
-import com.google.mlkit.vision.barcode.Barcode;
+import com.google.mlkit.vision.barcode.common.Barcode;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.label.ImageLabel;
 import com.google.mlkit.vision.text.Text;
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Locale;
 
 
-public class FirebaseUtils {
+public class MLKitUtils {
     public static JSONObject parseText(InputImage image, Text text) throws Exception {
         JSONArray blocks = new JSONArray();
         for (Text.TextBlock textBlock : text.getTextBlocks()) {
