@@ -9,5 +9,5 @@ exports.barcodeDetector = function (image, success, error) {
 };
 
 exports.imageLabeler = function (image, success, error) {
-  exec(success, error, "MLkit", "imageLabeler", [image]);
+  exec(success, error, "MLKit", "imageLabeler", [image]);
 };
